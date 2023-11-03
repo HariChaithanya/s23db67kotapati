@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  - const results = [{ guitar_type: 'Electric', guitar_price: '120.89',guitar_color: 'red' },{ guitar_type: 'Acoustic', guitar_price: '890.45',guitar_color: 'wood' },{ guitar_type: 'bass', guitar_price: '786.56',guitar_color: 'blue' }]
+
+  .container-fluid
+    .row
+      each guitar,index in results
+        div(class="col-sm-2" onclick=`buy(${index})`)       
+          h3 #{guitar.guitar_type}
+          p Guitar Price: $#{guitar.guitar_price}
+          p Guitar Color #{guitar.guitar_color}
+  script.
+    function buy(index) {
+        alert(`You purchased : ${index}`)
+    }
