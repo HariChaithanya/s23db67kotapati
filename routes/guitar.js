@@ -1,9 +1,6 @@
 var express = require('express');
+const guitar_controlers= require('../controllers/guitar');
 var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('guitar', { title: 'Search Results' });
-});
-
+/* GET costumes */
+router.get('/', guitar_controlers.guitar_view_all_Page );
 module.exports = router;
