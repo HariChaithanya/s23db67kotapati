@@ -1,9 +1,9 @@
 {
-  "name": "f23wb67kotapati",
+  "name": "s23db67kotapati",
   "version": "0.0.0",
   "private": true,
   "author": "Harichaithanya Kotapati",
-  "description": "This is lab10 assignment to become familiar with using pug templates to dynamically generate web pages on the server side.",
+  "description": "",
   "scripts": {
     "start": "node ./bin/www"
   },
