@@ -1,0 +1,31 @@
+extends layout
+block content
+  h1= title
+  form(id='guitarForm', action="/resource/guitar", method="POST")
+    div.form-group
+      label.guitarAttr(for='guitar_type') Guitar Type
+      input#guitar_type(type='text', name='guitar_type')
+    div.form-group
+      label.guitarAttr(for='guitar_price') Guitar Price
+      input#guitar_price(type='number', name='guitar_price')
+    div.form-group
+      label.guitarAttr(for='guitar_color') Guitar Color
+      input#guitar_color(type='text', name='guitar_color')
+    input(type="submit")
+  script.
+    document.forms.guitarForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Save succeeded")
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Save failed " + error );
+      });
+    });
