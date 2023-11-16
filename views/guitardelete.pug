@@ -9,48 +9,20 @@ block content
     - let guitar_type = toShow.guitar_type
     - let guitar_price = toShow.guitar_price
     - let guitar_color = toShow.guitar_color
-    - let actionid = "/resource/guitar/" + guitarid
-
-    script.
-      let actionid = "#{actionid}"
 
     div
       div.row
         div(class='guitarAttr mr-3') Guitar ID is:
         div #{guitarid}
+
       div.row
         div(class='guitarAttr mr-3') Guitar Type is:
         div #{guitar_type}
+
       div.row
         div(class='guitarAttr mr-3') Guitar Price is:
         div #{guitar_price}
+
       div.row
         div(class='guitarAttr mr-3') Guitar Color is:
         div #{guitar_color}
-
-      button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
-      button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
-
-    script.
-      function cancel() {
-        // Go back to the home page for the costume collection
-        window.location.href='/motor'
-      }
-
-    script.
-      function deleteOnid() {
-        console.log("starting delete");
-        // delete first
-        fetch(actionid, {
-          method: 'DELETE' // Don't need a body for the delete
-        }).then((resp) => {
-          return resp.json(); // or resp.text() or whatever the server sends
-        }).then((body) => {
-          alert("Delete succeeded");
-          window.location.href='/motor';
-          // TODO handle body
-        }).catch((error) => {
-          // TODO handle error
-          alert("Delete failed " + error );
-        });
-      }

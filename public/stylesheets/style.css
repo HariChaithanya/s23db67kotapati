@@ -11,4 +11,32 @@ a {
   background-color: aquamarine;
   width: 120px;
  }
- 
+
+ .labelStyle{
+  padding: 20px 20px;
+  margin: 5px 2;
+  box-sizing:border-box;
+  background-color: rgb(101, 170, 4);
+  border: 2px;
+  color: rgb(219, 187, 210);
+  padding: 17px 34px;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: center;
+ }
+ .inputButtons{
+  box-sizing: border-box;
+  background-color: #8e04aa;
+  border: 2px;
+  color: rgb(219, 187, 187);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+ }
+ .inputBox {
+  padding: 16px 20px;
+  border: 5px;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}

@@ -3,15 +3,15 @@ block content
   h1= title
   form(id='guitarForm', action="/resource/guitar", method="POST")
     div.form-group
-      label.guitarAttr(for='guitar_type') Guitar Type
-      input#guitar_type(type='text', name='guitar_type')
+      label.labelStyle(for='guitar_type') Guitar Type
+      input.inputBox#guitar_type(type='text', name='guitar_type')
     div.form-group
-      label.guitarAttr(for='guitar_price') Guitar Price
-      input#guitar_price(type='number', name='guitar_price')
+      label.labelStyle(for='guitar_price') Guitar Price
+      input.inputBox#guitar_price(type='number', name='guitar_price')
     div.form-group
-      label.guitarAttr(for='guitar_color') Guitar Color
-      input#guitar_color(type='text', name='guitar_color')
-    input(type="submit")
+      label.labelStyle(for='guitar_color') Guitar Color
+      input.inputBox#guitar_color(type='text', name='guitar_color')
+    input.inputButtons(type="submit")
   script.
     document.forms.guitarForm.addEventListener('submit', (event) => {
       event.preventDefault();
