@@ -6,5 +6,5 @@ router.get('/', guitar_controlers.guitar_view_all_Page );
 router.get('/detail', guitar_controlers.guitar_view_one_Page);
 router.get('/create', guitar_controlers.guitar_create_Page);
 /* GET create update page */
-router.get('/update', costume_controlers.costume_update_Page)
+router.get('/update', guitar_controlers.guitar_update_Page)
 module.exports = router;
