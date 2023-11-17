@@ -1,16 +1,33 @@
-extends layout
+//- extends layout
 
+//- block content
+//-   h1= title
+//-   - const items = results
+//-   .container-fluid
+//-     .row
+//-       each guitar,index in items
+//-         div(class="col-sm-2" onclick=`buy(${index})`)       
+//-           h3 #{guitar.guitar_type}
+//-           p Guitar Price: $#{guitar.guitar_price}
+//-           p Guitar Color #{guitar.guitar_color}
+//-   script.
+//-     function buy(index) {
+//-         alert(`You purchased : ${index}`)
+//-     }
+extends layout
 block content
-  h1= title
-  - const items = results
-  .container-fluid
-    .row
-      each guitar,index in items
-        div(class="col-sm-2" onclick=`buy(${index})`)       
-          h3 #{guitar.guitar_type}
-          p Guitar Price: $#{guitar.guitar_price}
-          p Guitar Color #{guitar.guitar_color}
-  script.
-    function buy(index) {
-        alert(`You purchased : ${index}`)
-    }
+ h1= title
+ - let items = results;
+   each item in items
+    - let destination = `dispatch("/guitar/update?id=${item._id}")`
+      div
+       p GuitarType  - #{item.guitar_type}
+       p Guitar Price - #{item.guitar_price}
+       p Color - #{item.guitar_color}
+       button.btn( class="btn-primary ml-1", onclick= destination) Update
+       br
+       br
+ script.
+  function dispatch(path){
+   window.location.href=path
+  }
