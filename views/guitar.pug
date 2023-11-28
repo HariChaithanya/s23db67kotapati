@@ -14,21 +14,47 @@
 //-     function buy(index) {
 //-         alert(`You purchased : ${index}`)
 //-     }
+//- extends layout
+//- block content
+//-  h1= title
+//-  - let items = results;
+//-    each item in items
+//-     - let destination = `dispatch("/guitar/update?id=${item._id}")`
+//-       div
+//-        p GuitarType  - #{item.guitar_type}
+//-        p Guitar Price - #{item.guitar_price}
+//-        p Color - #{item.guitar_color}
+//-        button.btn( class="btn-primary ml-1", onclick= destination) Update
+//-        br
+//-        br
+//-  script.
+//-   function dispatch(path){
+//-    window.location.href=path
+//-   }
 extends layout
+
 block content
- h1= title
- - let items = results;
-   each item in items
-    - let destination = `dispatch("/guitar/update?id=${item._id}")`
-      div
-       p GuitarType  - #{item.guitar_type}
-       p Guitar Price - #{item.guitar_price}
-       p Color - #{item.guitar_color}
-       button.btn( class="btn-primary ml-1", onclick= destination) Update
-       br
-       br
- script.
-  function dispatch(path){
-   window.location.href=path
-  }
-  
+  h1= title
+
+  a.btn.btn-primary(href="/guitar/create") Create Guitar
+
+  - let items = results;
+  each item in items
+    - let updateGuitar = `dispatch("/guitar/update?id=${item._id}")`
+    - let guitarDetails = `dispatch("/guitar/detail?id=${item._id}")`
+    - let guitarDeletion = `dispatch("/guitar/delete?id=${item._id}")`
+
+    div
+      p GuitarType - #{item.guitar_type}
+      p Guitar Price - #{item.guitar_price}
+      p Color - #{item.guitar_color}
+      button.btn.btn-primary.ml-1(onclick=updateGuitar) Update
+      button.btn.btn-secondary.ml-1(onclick=guitarDetails) Detail
+      button.btn.btn-danger.ml-1(onclick=guitarDeletion) Delete
+      br
+      br
+
+  script.
+    function dispatch(path){
+      window.location.href = path;
+    }
